@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap');
+
+$blueColor: #0378FF;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@mixin formatting($display, $flexFlow, $justifyC, $alignI, $width, $height) {
+    display: $display;
+    flex-flow: $flexFlow;
+    justify-content: $justifyC;
+    align-items: $alignI;
+    width: $width;
+    height: $height;
+}
+
+body {
+    background-color: $blueColor;
+    font-family: 'Poppins', sans-serif;
+    @include formatting(flex, row nowrap, center, center, 100%, 100vh);
+    color: #212121;
+}
+
+div.App {
+    @include formatting(flex, column nowrap, space-between, center, 250px, 400px);
+
+    div.preload{
+        @include formatting(flex, column nowrap, center, center, auto, auto);
+    }
+
+    form {
+        @include formatting(flex, column nowrap, center, center, auto, auto);
+
+        input {
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        button {
+            background-color: white;
+            color: $blueColor;
+            border-radius: 5px;
+            width: 150px;
+            padding: 10px;
+            font-size: 17px;
+            border: none;
+        }
+    }
+
+    div.card{
+        @include formatting(flex, column nowrap, start, center, 250px, auto);
+        padding: 30px 20px;
+        margin-bottom: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 3px 5px 2px #013C80;
+
+        .city{
+            font-size: 20px;
+            font-weight: 600;
+            width: 180px;
+        }
+        .location{
+            @include formatting(flex, row wrap, space-between, center, 180px, auto);
+            font-size: 13px;
+            font-weight: 200;
+        }
+        .temperatura{
+            @include formatting(flex, row nowrap, start, center, 180px, 100px);
+            position: relative;
+        }
+        .temperatura .number{
+            font-size: 110px;
+            font-weight: 600;
+            position: absolute;
+            top: -20px;
+        }
+        .temperatura .celcius{
+            font-weight: 600;
+            font-size: 30px;
+            align-self: start;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .status{
+            @include formatting(flex, column nowrap, center, center, auto, auto);
+        }
+        .status img{
+            width: 75px;
+        }
+        .status .dateSpan{
+            color: #013C80;
+        }
+        .status .date{
+            font-size: 17px;
+            color: green;
+        }
+    }
+}
